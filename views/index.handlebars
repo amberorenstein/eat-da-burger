@@ -9,19 +9,23 @@ Create a button in index.handlebars that will submit the user input into the dat
     </div>
     <div class="col-xs-6 text-center" class="task">
       <div class="row">
+        <h2>Need to buy</h2>
         {{#each burger_data}}
           {{#unless this.devoured}}
-            <div class="col-xs-9 textcenter">
+            <div class="col-xs-9 textcenter" id = "listItem">
               <pre>
-            {{this.id}}. {{this.burger_name}}
+            {{this.burger_name}}
           </pre>
             </div>
             <div class="col-xs-3 text-center">
               <form method="POST" action="/burgers/update?_method=PUT" class="button-size">
                 <input type="hidden" name="burger_id" type="text" value= {{this.id}}>
                 <br>
-                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </button>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+              </form>
+            </div>
+            <div class="col-xs-3 text-center">
+              <form class="" action="/burgers/update?_method=DELETE" method="DELETE">
               </form>
             </div>
           {{/unless}}
@@ -51,7 +55,9 @@ Create a button in index.handlebars that will submit the user input into the dat
   </div>
   <div class="row">
     <div class="col-xs-12 text-center">
-      <button type="submit" class="btn btn-warning" id="delete">Delete All</button>
+      <form action="/delete" method="post">
+          <button type="submit" class="btn btn-warning" id="delete">Delete All</button>
+      </form>
     </div>
   </div>
 </div>

@@ -29,8 +29,8 @@ router.post('/burgers/create', function(req,res){
   })
 })
 
-router.delete("/", function(req, res) {
-  burgers.delete(condition, function() {
+router.post("/delete", function(req, res) {
+  burger.delete(function() {
     res.redirect("/");
   });
 });
